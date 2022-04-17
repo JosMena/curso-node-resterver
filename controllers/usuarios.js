@@ -71,16 +71,13 @@ const usuariosPost = async(req, res = response) => {
 const usuariosPatch = (req, res = response) => {
 
     res.json({
-        msg: 'patch API - Patch',
+        msg: 'patch API - usuarios Patch',
     });
 };
 
 const usuariosDelete = async(req, res = response) => {
 
     const { id } = req.params;
-
-    //Fisicamente lo borramos
-    //const usuario = await Usuario.findByIdAndDelete( id ); Problemas al ejecutarse
     const usuario = await Usuario.findByIdAndUpdate( id, { estado: false } );
 
     res.json( usuario );
